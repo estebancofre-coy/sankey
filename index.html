@@ -347,6 +347,79 @@
 
 		.item p { margin: 0; color: var(--muted); font-size: 14px; }
 
+		.context {
+			margin-top: 48px;
+			padding: 28px;
+			border-radius: var(--radius);
+			background: #ffffff;
+			border: 1px solid var(--border);
+			box-shadow: 0 10px 24px rgba(17, 38, 62, 0.05);
+		}
+
+		.context h3 {
+			margin: 0 0 12px 0;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+		}
+
+		.context p {
+			margin: 0 0 12px 0;
+			color: var(--muted);
+			font-size: 15px;
+			line-height: 1.7;
+		}
+
+		.context p:last-child { margin-bottom: 0; }
+
+		.universities {
+			margin-top: 28px;
+			padding-top: 28px;
+			border-top: 1px solid var(--border);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+		}
+
+		.university-badge {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+			padding: 16px;
+			border-radius: 12px;
+			background: rgba(14, 124, 134, 0.04);
+			border: 1px solid rgba(14, 124, 134, 0.1);
+			text-align: center;
+		}
+
+		.university-logo {
+			width: 60px;
+			height: 60px;
+			object-fit: contain;
+		}
+
+		.university-name {
+			margin: 0;
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		.credits {
+			margin-top: 28px;
+			padding: 16px;
+			border-radius: 10px;
+			background: rgba(14, 124, 134, 0.06);
+			border-left: 3px solid var(--accent);
+			font-size: 13px;
+			color: var(--muted);
+		}
+
+		.credits strong {
+			color: var(--text);
+		}
+
 		footer {
 			margin-top: 54px;
 			padding: 16px 0 22px 0;
@@ -358,6 +431,7 @@
 			header { position: static; }
 			.hero { grid-template-columns: 1fr; }
 			.section-head { flex-direction: column; align-items: flex-start; }
+			.universities { grid-template-columns: 1fr; }
 		}
 	</style>
 </head>
@@ -469,6 +543,46 @@
 					<h3>Uso sugerido</h3>
 					<p>Exploración rápida para seminarios, discusiones de comité y preparación de informes ejecutivos.</p>
 				</div>
+			</div>
+		</section>
+
+		<section class="context" aria-labelledby="context-title">
+			<h3 id="context-title">Contexto de investigación</h3>
+			
+			<div>
+				<h4 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 700; color: var(--accent);">Imaginarios sociales sobre exclusión-inclusión laboral de PCD en la Región de Aysén, Chile</h4>
+				<p style="margin: 0 0 12px 0; font-style: italic; color: var(--text); font-weight: 600;">Sistemas, Estrategias, mecanismos y simbolismos en tensión</p>
+				
+				<p>Los resultados presentados constituyen la primera exploración temática de una serie de entrevistas desarrolladas sobre el propuesto "Sistema de Inclusión Laboral de Personas con Discapacidad" como herramienta investigativa para buscar incidencia pública.</p>
+				
+				<p>Este análisis utiliza diagramas <strong>Sankey</strong> para visualizar las relaciones entre instancias de análisis, condensaciones temáticas y temas transversales identificados. Esta herramienta permite una lectura rápida e intuitiva de los hallazgos para equipos académicos y de política pública.</p>
+			</div>
+
+			<div class="universities">
+				<div class="university-badge">
+					<svg class="university-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="50" cy="30" r="12" fill="#0e7c86"/>
+						<path d="M 30 50 L 70 50 L 65 80 L 35 80 Z" fill="#0e7c86" opacity="0.8"/>
+						<text x="50" y="75" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">UDA</text>
+					</svg>
+					<p class="university-name">Universidad de Aysén</p>
+				</div>
+				<div class="university-badge">
+					<svg class="university-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+						<rect x="25" y="20" width="50" height="60" fill="#0e7c86"/>
+						<circle cx="35" cy="35" r="5" fill="#ffffff"/>
+						<circle cx="50" cy="35" r="5" fill="#ffffff"/>
+						<circle cx="65" cy="35" r="5" fill="#ffffff"/>
+						<circle cx="35" cy="55" r="5" fill="#ffffff"/>
+						<circle cx="50" cy="55" r="5" fill="#ffffff"/>
+						<circle cx="65" cy="55" r="5" fill="#ffffff"/>
+					</svg>
+					<p class="university-name">Universidad Alberto Hurtado</p>
+				</div>
+			</div>
+
+			<div class="credits">
+				<strong>Visualizaciones generadas con Plotly</strong> — Biblioteca de código abierto para gráficos interactivos en Python, JavaScript y R. Los diagramas Sankey permiten explorar flujos de datos complejos de manera intuitiva.
 			</div>
 		</section>
 
