@@ -55,10 +55,11 @@ const translations = {
     'card-empleo-btn': 'Explorar →',
     
     'reading-guide-title': 'Cómo leer estos Sankey',
-    'reading-guide-1': 'Los anchos de las bandas representan magnitud relativa: más grueso = mayor concentración',
-    'reading-guide-2': 'Usa el resaltado al pasar el cursor para seguir el recorrido completo de cada categoría',
-    'reading-guide-3': 'Explora de izquierda a derecha para entender la trayectoria hacia los temas',
-    'reading-guide-4': 'Compara proporciones entre visualizaciones para identificar patrones transversales',
+    'reading-guide-1': 'Los anchos de las bandas representan magnitud relativa: más grueso = mayor concentración de citas. Esto permite identificar de un vistazo los temas o conexiones más presentes en el corpus analizado.',
+    'reading-guide-2': 'Usa el resaltado al pasar el cursor para seguir el recorrido completo de cada categoría. El destacado interactivo muestra cómo un nodo específico se distribuye hacia todos sus destinos.',
+    'reading-guide-3': 'Explora de izquierda a derecha para entender la trayectoria hacia los temas. Esta lectura secuencial revela el flujo completo desde instancias o condensaciones hacia los ejes temáticos transversales.',
+    'reading-guide-4': 'Compara proporciones entre visualizaciones para identificar patrones transversales. Las dimensiones relativas permiten detectar concentraciones temáticas coherentes entre distintas perspectivas analíticas.',
+    'reading-guide-5': 'Es posible manipular la posición de los temas arrastrándolos. Reorganiza los nodos para explorar diferentes configuraciones y facilitar la lectura según tu enfoque particular.',
     
     // Methodology
     'methodology-title': 'Notas metodológicas',
