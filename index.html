@@ -1,15 +1,480 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sankey – Temas Transversales v4</title>
-<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:32px;line-height:1.45}
-h1{margin:0 0 12px 0}.note{color:#444;margin:0 0 18px 0}ul{padding-left:18px}
-li{margin:8px 0}a{color:#0b57d0;text-decoration:none}a:hover{text-decoration:underline}
-code{background:#f3f3f3;padding:2px 4px;border-radius:4px}</style></head><body>
-<h1>Sankey – Temas Transversales (v4)</h1>
-<p class="note">Esta versión incorpora explícitamente los temas/condensaciones que antes quedaban fuera del mapeo, usando <code>Temas Transversales (1).xlsx</code> + 2 temas añadidos.</p>
-<ul>
-<li><a href="sankey_General_inst_tema.html">Sankey general: Instancia → Tema</a></li>
-<li><a href="sankey_Formación_cond_tema.html">Formación: Condensación → Tema</a></li>
-<li><a href="sankey_Intermediación_cond_tema.html">Intermediación: Condensación → Tema</a></li>
-<li><a href="sankey_Empleo_cond_tema.html">Empleo: Condensación → Tema</a></li>
-</ul></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Resultados | Sankey Temas Transversales</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: linear-gradient(145deg, #f7f9fc 0%, #ecf2f7 65%, #e6eef4 100%);
+			--panel: #ffffff;
+			--text: #1c2530;
+			--muted: #4f6274;
+			--accent: #0e7c86;
+			--accent-2: #e2a93b;
+			--border: #d7dee7;
+			--shadow: 0 18px 45px rgba(17, 38, 62, 0.08);
+			--radius: 14px;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			background: var(--bg);
+			color: var(--text);
+			font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+			line-height: 1.6;
+			padding-bottom: 64px;
+		}
+
+		.page {
+			max-width: 1180px;
+			margin: 0 auto;
+			padding: 36px 24px 0 24px;
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 14px 18px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.82);
+			backdrop-filter: blur(10px);
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+			position: sticky;
+			top: 18px;
+			z-index: 10;
+		}
+
+		.brand {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-weight: 600;
+			letter-spacing: 0.2px;
+			color: var(--text);
+		}
+
+		.brand-mark {
+			width: 14px;
+			height: 14px;
+			border-radius: 4px;
+			background: linear-gradient(135deg, var(--accent), #1298a4 70%);
+			box-shadow: 0 8px 18px rgba(14, 124, 134, 0.35);
+		}
+
+		.header-actions {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			font-size: 14px;
+		}
+
+		.pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 6px 12px;
+			border-radius: 999px;
+			background: rgba(14, 124, 134, 0.1);
+			color: var(--accent);
+			border: 1px solid rgba(14, 124, 134, 0.18);
+			font-weight: 600;
+		}
+
+		.link {
+			color: var(--text);
+			text-decoration: none;
+			padding: 6px 10px;
+			border-radius: 9px;
+			border: 1px solid transparent;
+			transition: all 0.16s ease;
+		}
+
+		.link:hover {
+			border-color: var(--border);
+			background: rgba(255, 255, 255, 0.7);
+		}
+
+		.hero {
+			margin-top: 28px;
+			padding: 34px;
+			border-radius: 18px;
+			background: radial-gradient(circle at 14% 20%, rgba(14, 124, 134, 0.14) 0, transparent 30%),
+									radial-gradient(circle at 88% 12%, rgba(226, 169, 59, 0.18) 0, transparent 28%),
+									var(--panel);
+			border: 1px solid rgba(215, 222, 231, 0.8);
+			box-shadow: var(--shadow);
+			display: grid;
+			grid-template-columns: 1.05fr 0.95fr;
+			gap: 28px;
+		}
+
+		.kicker {
+			font-size: 14px;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: var(--accent);
+			font-weight: 700;
+			margin-bottom: 10px;
+		}
+
+		h1 {
+			margin: 0 0 12px 0;
+			font-size: clamp(32px, 4vw, 46px);
+			line-height: 1.12;
+			font-family: "Source Serif 4", "IBM Plex Sans", serif;
+			letter-spacing: -0.02em;
+		}
+
+		.lede {
+			margin: 0 0 18px 0;
+			color: var(--muted);
+			max-width: 38ch;
+			font-size: 18px;
+		}
+
+		.cta-group {
+			display: flex;
+			gap: 12px;
+			flex-wrap: wrap;
+			margin-top: 12px;
+		}
+
+		.button {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 12px 16px;
+			border-radius: 12px;
+			border: 1px solid transparent;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all 0.16s ease;
+			cursor: pointer;
+		}
+
+		.button.primary {
+			background: linear-gradient(135deg, var(--accent), #1298a4);
+			color: #ffffff;
+			box-shadow: 0 14px 30px rgba(14, 124, 134, 0.35);
+		}
+
+		.button.primary:hover { transform: translateY(-1px); }
+
+		.button.ghost {
+			background: rgba(255, 255, 255, 0.7);
+			color: var(--text);
+			border-color: var(--border);
+		}
+
+		.hero-panel {
+			background: rgba(255, 255, 255, 0.86);
+			border-radius: 14px;
+			border: 1px solid var(--border);
+			padding: 16px 16px 4px 16px;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+		}
+
+		.hero-panel h3 {
+			margin: 0 0 8px 0;
+			font-size: 16px;
+			font-weight: 700;
+			letter-spacing: 0.01em;
+		}
+
+		.stat-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 12px;
+			margin: 12px 0 6px 0;
+		}
+
+		.stat {
+			padding: 12px 14px;
+			border-radius: 12px;
+			border: 1px solid var(--border);
+			background: #ffffff;
+		}
+
+		.stat strong {
+			display: block;
+			font-size: 24px;
+			font-weight: 700;
+			margin-bottom: 6px;
+			color: var(--accent);
+		}
+
+		.stat span { color: var(--muted); font-size: 14px; }
+
+		section { margin-top: 48px; }
+
+		.section-head {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+
+		.section-head h2 {
+			margin: 0;
+			font-size: 22px;
+			letter-spacing: -0.01em;
+		}
+
+		.section-head p {
+			margin: 0;
+			color: var(--muted);
+			max-width: 46ch;
+			font-size: 15px;
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 16px;
+		}
+
+		.card {
+			position: relative;
+			padding: 18px 16px 16px 16px;
+			border-radius: var(--radius);
+			background: #ffffff;
+			border: 1px solid var(--border);
+			box-shadow: 0 12px 28px rgba(17, 38, 62, 0.06);
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			transition: transform 0.16s ease, box-shadow 0.16s ease;
+		}
+
+		.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			font-size: 13px;
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+			color: var(--accent);
+			font-weight: 700;
+		}
+
+		.title {
+			margin: 0;
+			font-size: 18px;
+			letter-spacing: -0.01em;
+		}
+
+		.card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+		.meta {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+			font-size: 13px;
+			color: var(--muted);
+		}
+
+		.meta span {
+			padding: 6px 10px;
+			border-radius: 999px;
+			background: rgba(14, 124, 134, 0.08);
+			color: var(--accent);
+			border: 1px solid rgba(14, 124, 134, 0.16);
+			font-weight: 600;
+		}
+
+		.card .cta {
+			margin-top: auto;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			font-weight: 600;
+			color: var(--accent);
+			text-decoration: none;
+			padding: 10px 12px;
+			border-radius: 12px;
+			background: rgba(14, 124, 134, 0.08);
+			border: 1px solid rgba(14, 124, 134, 0.18);
+			transition: background 0.16s ease, transform 0.16s ease;
+		}
+
+		.card .cta:hover { background: rgba(14, 124, 134, 0.12); transform: translateY(-1px); }
+
+		.guide {
+			padding: 18px;
+			border-radius: var(--radius);
+			background: #ffffff;
+			border: 1px dashed var(--border);
+			color: var(--muted);
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+			font-size: 15px;
+		}
+
+		.guide ul { margin: 10px 0 0 0; padding-left: 18px; }
+
+		.guide li { margin: 6px 0; }
+
+		.method {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 14px;
+		}
+
+		.method .item {
+			background: #ffffff;
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 14px;
+			box-shadow: 0 10px 24px rgba(17, 38, 62, 0.05);
+		}
+
+		.item h3 {
+			margin: 0 0 6px 0;
+			font-size: 16px;
+			letter-spacing: -0.01em;
+		}
+
+		.item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+		footer {
+			margin-top: 54px;
+			padding: 16px 0 22px 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		@media (max-width: 900px) {
+			header { position: static; }
+			.hero { grid-template-columns: 1fr; }
+			.section-head { flex-direction: column; align-items: flex-start; }
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<div class="brand">
+				<span class="brand-mark" aria-hidden="true"></span>
+				<span>Sankey Lab · Temas transversales</span>
+			</div>
+			<div class="header-actions">
+				<span class="pill">Versión v4 · Con temas añadidos</span>
+				<a class="link" href="#visualizaciones">Visualizaciones</a>
+				<a class="link" href="#metodologia">Metodología</a>
+			</div>
+		</header>
+
+		<section class="hero">
+			<div>
+				<div class="kicker">Resultados exploratorios</div>
+				<h1>Sankeys para navegar hallazgos de investigación aplicada</h1>
+				<p class="lede">Cuatro diagramas sintetizan la relación entre instancias, condensaciones temáticas y los temas transversales identificados en el análisis. Diseñados para lectura rápida por equipos académicos y de política pública.</p>
+				<div class="cta-group">
+					<a class="button primary" href="#visualizaciones">Explorar visualizaciones</a>
+					<a class="button ghost" href="#metodologia">Ver notas metodológicas</a>
+				</div>
+			</div>
+			<div class="hero-panel" aria-label="Resumen de colección">
+				<h3>Contexto rápido</h3>
+				<div class="stat-grid">
+					<div class="stat"><strong>4</strong><span>Visualizaciones Sankey</span></div>
+					<div class="stat"><strong>3</strong><span>Ejes de condensación</span></div>
+					<div class="stat"><strong>Temas</strong><span>Incluye temas añadidos y no mapeados en versiones previas</span></div>
+					<div class="stat"><strong>Lectura</strong><span>Optimizada para exploración cualitativa</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="visualizaciones">
+			<div class="section-head">
+				<h2>Visualizaciones disponibles</h2>
+				<p>Accede a cada diagrama Sankey según el punto de partida analítico (instancia o condensación) y explora la distribución hacia los temas transversales.</p>
+			</div>
+			<div class="cards">
+				<article class="card">
+					<div class="eyebrow">General</div>
+					<h3 class="title">Instancia → Tema</h3>
+					<p>Vista general de cómo cada instancia se distribuye entre los temas transversales priorizados.</p>
+					<div class="meta"><span>Panorámica</span><span>Instancias</span></div>
+					<a class="cta" href="sankey_General_inst_tema.html">Abrir visualización →</a>
+				</article>
+
+				<article class="card">
+					<div class="eyebrow">Formación</div>
+					<h3 class="title">Condensación → Tema</h3>
+					<p>Enfoque en procesos formativos, destacando la transición desde condensaciones hacia temas transversales.</p>
+					<div class="meta"><span>Condensaciones</span><span>Enfoque formativo</span></div>
+					<a class="cta" href="sankey_Formación_cond_tema.html">Abrir visualización →</a>
+				</article>
+
+				<article class="card">
+					<div class="eyebrow">Intermediación</div>
+					<h3 class="title">Condensación → Tema</h3>
+					<p>Muestra los nodos de intermediación y su peso relativo en la articulación con los temas.</p>
+					<div class="meta"><span>Condensaciones</span><span>Intermediación</span></div>
+					<a class="cta" href="sankey_Intermediación_cond_tema.html">Abrir visualización →</a>
+				</article>
+
+				<article class="card">
+					<div class="eyebrow">Empleo</div>
+					<h3 class="title">Condensación → Tema</h3>
+					<p>Concentra la mirada en empleo y empleabilidad, evidenciando conexiones con cada tema transversal.</p>
+					<div class="meta"><span>Condensaciones</span><span>Empleo</span></div>
+					<a class="cta" href="sankey_Empleo_cond_tema.html">Abrir visualización →</a>
+				</article>
+			</div>
+		</section>
+
+		<section aria-labelledby="guia">
+			<div class="section-head">
+				<h2 id="guia">Cómo leer estos Sankey</h2>
+				<p>Los anchos de las bandas representan magnitud relativa. Explora de izquierda a derecha para seguir la trayectoria desde las categorías origen hasta los temas.</p>
+			</div>
+			<div class="guide">
+				<ul>
+					<li>Usa el resaltado al pasar el cursor para identificar el recorrido completo de cada categoría.</li>
+					<li>Compara proporciones relativas: las bandas más gruesas señalan mayor concentración.</li>
+					<li>Consulta la visualización general antes de profundizar en cada eje específico.</li>
+					<li>Anota patrones repetidos entre ejes para discutir convergencias o vacíos temáticos.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="metodologia" aria-labelledby="notas">
+			<div class="section-head">
+				<h2 id="notas">Notas metodológicas</h2>
+				<p>Esta versión incluye los temas y condensaciones previamente no mapeados usando Temas Transversales (1).xlsx más dos temas añadidos para completar la cobertura.</p>
+			</div>
+			<div class="method">
+				<div class="item">
+					<h3>Fuentes</h3>
+					<p>Consolidado a partir de Temas Transversales (1).xlsx y registros complementarios. Revisión manual para asegurar trazabilidad.</p>
+				</div>
+				<div class="item">
+					<h3>Versión</h3>
+					<p>Iteración v4: se incluyen explícitamente condensaciones y temas previamente excluidos para evitar pérdida de casos.</p>
+				</div>
+				<div class="item">
+					<h3>Uso sugerido</h3>
+					<p>Exploración rápida para seminarios, discusiones de comité y preparación de informes ejecutivos.</p>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			Colección preparada para equipos académicos y de política pública. Última actualización v4.
+		</footer>
+	</div>
+</body>
+</html>
