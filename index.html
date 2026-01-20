@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Análisis Temático: Explorando Sankey's | Inclusión Laboral PCD</title>
+	<script src="translations.js"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
@@ -84,6 +85,13 @@
 			height: 6px;
 			border-radius: 50%;
 			background: var(--accent);
+		}
+
+		.header-banner {
+			max-height: 60px;
+			object-fit: contain;
+			width: auto;
+			display: block;
 		}
 
 		/* MAIN CONTAINER */
@@ -406,6 +414,47 @@
 			transform: translateX(2px);
 		}
 
+		/* INSTANCES SECTION */
+		.instances-section {
+			margin-bottom: 64px;
+		}
+
+		.instances-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 24px;
+		}
+
+		.instance-card {
+			padding: 32px 24px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			box-shadow: var(--shadow);
+			text-align: center;
+			transition: all 0.2s ease;
+		}
+
+		.instance-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-lg);
+			border-color: var(--accent);
+		}
+
+		.instance-card h3 {
+			margin: 0 0 12px 0;
+			font-size: 20px;
+			font-weight: 700;
+			color: var(--text);
+		}
+
+		.instance-card p {
+			margin: 0;
+			font-size: 14px;
+			color: var(--text-light);
+			line-height: 1.6;
+		}
+
 		/* FOOTER */
 		footer {
 			margin-top: 64px;
@@ -456,44 +505,56 @@
 	<header>
 		<a href="/" class="header-brand">
 			<span class="header-logo-mark"></span>
-			Análisis Temático
+			<span data-i18n="nav-brand">Análisis Temático</span>
 		</a>
-		<div class="header-logos">
-			<div class="header-uni">
-				<span class="header-uni-dot"></span>
-				<span>Universidad de Aysén</span>
-			</div>
-			<div class="header-uni">
-				<span class="header-uni-dot"></span>
-				<span>Universidad Alberto Hurtado</span>
-			</div>
-		</div>
+		<img class="header-banner" src="https://s0pzxunjcjroheew.public.blob.vercel-storage.com/header.png" alt="Universidad de Aysén y Universidad Alberto Hurtado">
 	</header>
 
 	<div class="page">
 		<!-- HERO -->
 		<section class="hero">
 			<div class="hero-content">
-				<div class="hero-kicker">Exploración temática</div>
-				<h1>Análisis Temático:<br><em>Explorando Sankey's</em></h1>
-				<p class="hero-lede">Visualización interactiva de datos cualitativos a través de diagramas Sankey. Navega las relaciones entre instancias, condensaciones temáticas y hallazgos transversales en el análisis de inclusión laboral de personas con discapacidad.</p>
+				<div class="hero-kicker" data-i18n="hero-kicker">Imaginarios sociales sobre exclusión-inclusión laboral de PCD en la Región de Aysén, Chile: Sistemas, Estrategias, mecanismos y simbolismos en tensión</div>
+				<h1><span data-i18n="hero-title-1">Análisis Temático:</span><br><em data-i18n="hero-title-2">Explorando Sankey's</em></h1>
+				<p class="hero-lede" data-i18n="hero-lede">Los resultados presentados constituyen la primera exploración temática de una serie de entrevistas desarrolladas sobre el propuesto "Sistema de Inclusión Laboral de Personas con Discapacidad" como herramienta investigativa para buscar incidencia pública.</p>
 
 				<div class="research-meta">
 					<div class="meta-card">
-						<p class="meta-label">Región</p>
-						<p class="meta-value">Aysén, Chile</p>
-						<p class="meta-desc">Contexto geográfico</p>
+						<p class="meta-label" data-i18n="meta-region-label">Región</p>
+						<p class="meta-value" data-i18n="meta-region-value">Aysén, Chile</p>
+						<p class="meta-desc" data-i18n="meta-region-desc">Contexto geográfico</p>
 					</div>
 					<div class="meta-card">
-						<p class="meta-label">Método</p>
-						<p class="meta-value">Sankey Diagrams</p>
-						<p class="meta-desc">Visualización de flujos</p>
+						<p class="meta-label" data-i18n="meta-method-label">Método</p>
+						<p class="meta-value" data-i18n="meta-method-value">Sankey Diagrams</p>
+						<p class="meta-desc" data-i18n="meta-method-desc">Visualización de flujos</p>
 					</div>
 					<div class="meta-card">
-						<p class="meta-label">Datos</p>
-						<p class="meta-value">4 Visualizaciones</p>
-						<p class="meta-desc">Múltiples perspectivas</p>
+						<p class="meta-label" data-i18n="meta-data-label">Datos</p>
+						<p class="meta-value" data-i18n="meta-data-value">4 Visualizaciones</p>
+						<p class="meta-desc" data-i18n="meta-data-desc">Múltiples perspectivas</p>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTEXTO DE LAS TRES INSTANCIAS -->
+		<section class="instances-section">
+			<div class="section-header">
+				<h2 data-i18n="instances-title">Las tres instancias del análisis</h2>
+			</div>
+			<div class="instances-grid">
+				<div class="instance-card">
+					<h3 data-i18n="instances-formacion">Formación</h3>
+					<p data-i18n="instances-formacion-desc">Comprende los procesos educativos, capacitación y desarrollo de competencias para personas con discapacidad.</p>
+				</div>
+				<div class="instance-card">
+					<h3 data-i18n="instances-intermediacion">Intermediación</h3>
+					<p data-i18n="instances-intermediacion-desc">Analiza los mecanismos, actores y estrategias que conectan la formación con oportunidades de empleo.</p>
+				</div>
+				<div class="instance-card">
+					<h3 data-i18n="instances-empleo">Empleo</h3>
+					<p data-i18n="instances-empleo-desc">Examina las condiciones, desafíos y realidades del empleo propiamente tal para personas con discapacidad.</p>
 				</div>
 			</div>
 		</section>
@@ -501,51 +562,51 @@
 		<!-- VISUALIZACIONES -->
 		<section id="visualizaciones">
 			<div class="section-header">
-				<h2>Visualizaciones disponibles</h2>
-				<p>Accede a cada diagrama según tu punto de partida analítico. Todos presentan las relaciones entre instancias, condensaciones y temas transversales.</p>
+				<h2 data-i18n="viz-title">Visualizaciones disponibles</h2>
+				<p data-i18n="viz-intro">Accede a cada diagrama según tu punto de partida analítico. Todos presentan las relaciones entre instancias, condensaciones y temas transversales.</p>
 			</div>
 
 			<div class="cards-grid">
 				<article class="card">
 					<div class="card-accent"></div>
-					<span class="card-tag">General</span>
-					<h3>Instancia → Tema</h3>
-					<p>Vista panorámica de cómo cada instancia (Formación, Intermediación, Empleo) se distribuye hacia los temas transversales priorizados.</p>
-					<a class="card-cta" href="sankey_General_inst_tema.html">Explorar →</a>
+					<span class="card-tag" data-i18n="card-general-tag">General</span>
+					<h3 data-i18n="card-general-title">Instancia → Tema</h3>
+					<p data-i18n="card-general-desc">Vista panorámica de cómo cada instancia (Formación, Intermediación, Empleo) se distribuye hacia los temas transversales priorizados.</p>
+					<a class="card-cta" href="sankey_General_inst_tema.html" data-i18n="card-general-btn">Explorar →</a>
 				</article>
 
 				<article class="card">
 					<div class="card-accent"></div>
-					<span class="card-tag">Formación</span>
-					<h3>Condensación → Tema</h3>
-					<p>Enfoque en procesos formativos. Observa cómo las condensaciones temáticas se articulan con los ejes transversales en educación.</p>
-					<a class="card-cta" href="sankey_Formación_cond_tema.html">Explorar →</a>
+					<span class="card-tag" data-i18n="card-formacion-tag">Formación</span>
+					<h3 data-i18n="card-formacion-title">Condensación → Tema</h3>
+					<p data-i18n="card-formacion-desc">Enfoque en procesos formativos. Observa cómo las condensaciones temáticas se articulan con los ejes transversales en educación.</p>
+					<a class="card-cta" href="sankey_Formación_cond_tema.html" data-i18n="card-formacion-btn">Explorar →</a>
 				</article>
 
 				<article class="card">
 					<div class="card-accent"></div>
-					<span class="card-tag">Intermediación</span>
-					<h3>Condensación → Tema</h3>
-					<p>Análisis de intermediación laboral. Muestra los nodos y su peso relativo en la articulación con temas de inclusión.</p>
-					<a class="card-cta" href="sankey_Intermediación_cond_tema.html">Explorar →</a>
+					<span class="card-tag" data-i18n="card-intermediacion-tag">Intermediación</span>
+					<h3 data-i18n="card-intermediacion-title">Condensación → Tema</h3>
+					<p data-i18n="card-intermediacion-desc">Análisis de intermediación laboral. Muestra los nodos y su peso relativo en la articulación con temas de inclusión.</p>
+					<a class="card-cta" href="sankey_Intermediación_cond_tema.html" data-i18n="card-intermediacion-btn">Explorar →</a>
 				</article>
 
 				<article class="card">
 					<div class="card-accent"></div>
-					<span class="card-tag">Empleo</span>
-					<h3>Condensación → Tema</h3>
-					<p>Perspectiva de empleo y empleabilidad. Evidencia las conexiones entre condensaciones laborales y ejes transversales.</p>
-					<a class="card-cta" href="sankey_Empleo_cond_tema.html">Explorar →</a>
+					<span class="card-tag" data-i18n="card-empleo-tag">Empleo</span>
+					<h3 data-i18n="card-empleo-title">Condensación → Tema</h3>
+					<p data-i18n="card-empleo-desc">Perspectiva de empleo y empleabilidad. Evidencia las conexiones entre condensaciones laborales y ejes transversales.</p>
+					<a class="card-cta" href="sankey_Empleo_cond_tema.html" data-i18n="card-empleo-btn">Explorar →</a>
 				</article>
 			</div>
 
 			<div class="reading-guide" style="margin-top: 28px;">
-				<h3>Cómo leer estos Sankey</h3>
+				<h3 data-i18n="reading-guide-title">Cómo leer estos Sankey</h3>
 				<ul>
-					<li>Los anchos de las bandas representan magnitud relativa: más grueso = mayor concentración</li>
-					<li>Usa el resaltado al pasar el cursor para seguir el recorrido completo de cada categoría</li>
-					<li>Explora de izquierda a derecha para entender la trayectoria hacia los temas</li>
-					<li>Compara proporciones entre visualizaciones para identificar patrones transversales</li>
+					<li data-i18n="reading-guide-1">Los anchos de las bandas representan magnitud relativa: más grueso = mayor concentración</li>
+					<li data-i18n="reading-guide-2">Usa el resaltado al pasar el cursor para seguir el recorrido completo de cada categoría</li>
+					<li data-i18n="reading-guide-3">Explora de izquierda a derecha para entender la trayectoria hacia los temas</li>
+					<li data-i18n="reading-guide-4">Compara proporciones entre visualizaciones para identificar patrones transversales</li>
 				</ul>
 			</div>
 		</section>
@@ -553,32 +614,30 @@
 		<!-- METODOLOGÍA -->
 		<section id="metodologia">
 			<div class="section-header">
-				<h2>Notas metodológicas</h2>
-				<p>Detalles sobre fuentes, procesamiento y marco de la investigación.</p>
+				<h2 data-i18n="methodology-title">Notas metodológicas</h2>
+				<p data-i18n="methodology-intro">Detalles sobre fuentes, procesamiento y marco de la investigación.</p>
 			</div>
 
 			<div class="methodology">
 				<div class="thesis-context">
-					<h4>Sobre la investigación</h4>
-					<p><strong>Título:</strong> "Imaginarios sociales sobre exclusión-inclusión laboral de PCD en la Región de Aysén, Chile: Sistemas, Estrategias, mecanismos y simbolismos en tensión"</p>
-					<p style="margin-top: 8px;">Los resultados presentados constituyen la <strong>primera exploración temática</strong> de una serie de entrevistas desarrolladas sobre el propuesto "Sistema de Inclusión Laboral de Personas con Discapacidad" como herramienta investigativa para buscar incidencia pública.</p>
+					<h4 data-i18n="methodology-context-title">Sobre la investigación</h4>
+					<p><strong data-i18n="methodology-context-1">Título:</strong> "Imaginarios sociales sobre exclusión-inclusión laboral de PCD en la Región de Aysén, Chile: Sistemas, Estrategias, mecanismos y simbolismos en tensión"</p>
+				<p><strong data-i18n="methodology-context-author">Autor:</strong> Dr(c) Esteban Cofré Morales · <strong data-i18n="methodology-context-supervisor">Supervisor:</strong> Dr. Leandro Sepúlveda</p>
+				<div class="methodology-subsection">
+					<h3 data-i18n="methodology-sources-title">Fuentes y datos</h3>
+					<p data-i18n="methodology-sources-text">Consolidado a partir de análisis de entrevistas anonimizadas. Se utilizó codificación temática para identificar fragmentos relevantes y su distribución en las tres instancias (Formación, Intermediación, Empleo).</p>
+					<p>Para consultar la distribución detallada de entrevistas por instancia: <a href="fuentes.html" class="sources-link" data-i18n="methodology-sources-link">Ver datos de fuentes →</a></p>
 				</div>
 
 				<div class="methodology-subsection">
-					<h3>Fuentes y datos</h3>
-					<p>Consolidado a partir de análisis de entrevistas anonimizadas. Se utilizó codificación temática para identificar fragmentos relevantes y su distribución en las tres instancias (Formación, Intermediación, Empleo).</p>
-					<p>Para consultar la distribución detallada de entrevistas por instancia: <a href="fuentes.html" class="sources-link">Ver datos de fuentes →</a></p>
+					<h3 data-i18n="methodology-tools-title">Herramientas y versión</h3>
+					<p><strong data-i18n="methodology-tools-version">Versión v4:</strong> <span data-i18n="methodology-tools-version-desc">Se incluyen explícitamente condensaciones y temas previamente excluidos para evitar pérdida de casos. Esta iteración añade cobertura completa del corpus de análisis.</span></p>
+					<p><strong data-i18n="methodology-tools-gen">Visualizaciones generadas con:</strong> <a href="https://plotly.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;" data-i18n="methodology-tools-lib">Plotly</a> — <span data-i18n="methodology-tools-lib-desc">Biblioteca de código abierto para gráficos interactivos. Los diagramas Sankey permiten explorar flujos de datos complejos de manera intuitiva sin sacrificar fidelidad analítica.</span></p>
 				</div>
 
 				<div class="methodology-subsection">
-					<h3>Herramientas y versión</h3>
-					<p><strong>Versión v4:</strong> Se incluyen explícitamente condensaciones y temas previamente excluidos para evitar pérdida de casos. Esta iteración añade cobertura completa del corpus de análisis.</p>
-					<p><strong>Visualizaciones generadas con:</strong> <a href="https://plotly.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">Plotly</a> — Biblioteca de código abierto para gráficos interactivos. Los diagramas Sankey permiten explorar flujos de datos complejos de manera intuitiva sin sacrificar fidelidad analítica.</p>
-				</div>
-
-				<div class="methodology-subsection">
-					<h3>Uso sugerido</h3>
-					<p>Exploración rápida para seminarios, discusiones de comité, preparación de informes ejecutivos y presentaciones en espacios de política pública. Las visualizaciones están optimizadas para lectura cualitativa.</p>
+					<h3 data-i18n="methodology-usage-title">Uso sugerido</h3>
+					<p data-i18n="methodology-usage-text">Exploración rápida para seminarios, discusiones de comité, preparación de informes ejecutivos y presentaciones en espacios de política pública. Las visualizaciones están optimizadas para lectura cualitativa.</p>
 				</div>
 			</div>
 		</section>
@@ -586,8 +645,8 @@
 
 	<!-- FOOTER -->
 	<footer>
-		<p>Análisis temático exploratorio | Última actualización v4</p>
-		<p style="margin-top: 12px; font-size: 12px;">Preparado para equipos académicos y de política pública. Proyecto colaborativo entre Universidad de Aysén y Universidad Alberto Hurtado.</p>
+		<p data-i18n="footer-1">Análisis temático exploratorio | Última actualización v4</p>
+		<p style="margin-top: 12px; font-size: 12px;" data-i18n="footer-2">Preparado para equipos académicos y de política pública. Proyecto colaborativo entre Universidad de Aysén y Universidad Alberto Hurtado.</p>
 	</footer>
 </body>
 </html>
