@@ -234,6 +234,8 @@ class LanguageManager {
           transition: all 0.2s ease;
           text-transform: uppercase;
           letter-spacing: 0.05em;
+          white-space: nowrap;
+          flex-shrink: 0;
         }
         .lang-toggle:hover {
           transform: translateY(-2px);
@@ -241,6 +243,12 @@ class LanguageManager {
         }
         .lang-toggle:active {
           transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+          .lang-toggle {
+            padding: 6px 10px;
+            font-size: 11px;
+          }
         }
       `;
       document.head.appendChild(style);
