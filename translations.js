@@ -149,10 +149,11 @@ const translations = {
     'card-empleo-btn': 'Explore →',
     
     'reading-guide-title': 'How to read these Sankey diagrams',
-    'reading-guide-1': 'The width of the bands represents relative magnitude: thicker = greater concentration',
-    'reading-guide-2': 'Use highlighting when hovering to follow the complete path of each category',
-    'reading-guide-3': 'Explore from left to right to understand the trajectory towards themes',
-    'reading-guide-4': 'Compare proportions between visualizations to identify cross-cutting patterns',
+    'reading-guide-1': 'The width of the bands represents relative magnitude: thicker = greater concentration of citations. This allows you to identify at a glance the most prevalent themes or connections in the analyzed corpus.',
+    'reading-guide-2': 'Use highlighting when hovering to follow the complete path of each category. The interactive highlighting shows how a specific node is distributed towards all its destinations.',
+    'reading-guide-3': 'Explore from left to right to understand the trajectory towards themes. This sequential reading reveals the complete flow from instances or condensations towards cross-cutting thematic axes.',
+    'reading-guide-4': 'Compare proportions between visualizations to identify cross-cutting patterns. Relative dimensions allow you to detect coherent thematic concentrations across different analytical perspectives.',
+    'reading-guide-5': 'You can manipulate the position of the themes by dragging them. Reorganize nodes to explore different configurations and facilitate reading according to your particular focus.',
     
     // Methodology
     'methodology-title': 'Methodological notes',
