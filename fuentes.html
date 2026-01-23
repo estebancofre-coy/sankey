@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Distribución de entrevistas (anonimizadas) por instancia del sistema</title>
+  <script src="translations.js"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:32px;line-height:1.45;color:#111}
+    h1{margin:0 0 10px 0;font-size:22px}
+    p.note{margin:0 0 18px 0;color:#444;max-width:980px}
+    .wrap{max-width:1100px}
+    .author-line{margin:8px 0 14px 0;padding:12px 14px;border-left:4px solid #c84e2d;background:#fff4ed;font-weight:700;color:#c84e2d;font-size:14px;line-height:1.5}
+    .back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;margin-bottom:16px;border:1px solid #ddd;border-radius:8px;background:#f8fafc;color:#0f172a;text-decoration:none;font-weight:600;font-size:13px;transition:.15s ease;}
+    .back-home:hover{border-color:#2d5016;color:#2d5016;background:#eef4ec}
+    footer{margin-top:32px;padding-top:16px;border-top:1px solid #e5e7eb;font-size:13px;color:#444;line-height:1.5}
+    footer a{color:#2d5016;text-decoration:none;font-weight:600}
+    footer a:hover{text-decoration:underline}
+    table.tbl{border-collapse:collapse;width:100%;font-size:14px}
+    table.tbl thead th{text-align:left;border-bottom:2px solid #ddd;padding:10px 8px;position:sticky;top:0;background:#fff}
+    table.tbl tbody td{border-bottom:1px solid #eee;padding:9px 8px;vertical-align:top}
+    table.tbl tbody tr:last-child td{border-top:2px solid #ddd;font-weight:700}
+    .num{text-align:right;white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-home" href="/" data-i18n="sources-back">← Volver al inicio</a>
+    <h1 data-i18n="sources-title">Distribución de entrevistas (anonimizadas) por instancia del sistema</h1>
+    <p class="author-line"><strong data-i18n="methodology-context-author">Autor:</strong> <a href="https://sites.google.com/view/estebancofremorales" target="_blank" style="color:#c84e2d;text-decoration:none;border-bottom:1px solid #c84e2d">Dr(c) Esteban Cofré Morales</a> / <strong data-i18n="methodology-context-supervisor">Supervisor:</strong> Dr. Leandro Sepúlveda</p>
+    <p class="note" data-i18n="sources-note">La tabla muestra la cantidad de segmentos/citas codificados por entrevista (código) en cada instancia (Formación, Intermediación y Empleo). Se usan únicamente códigos y descriptores genéricos para resguardar anonimato.</p>
+    <table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Código</th>
+      <th>Referencia descriptiva</th>
+      <th>Formación (n citas)</th>
+      <th>Intermediación (n citas)</th>
+      <th>Empleo (n citas)</th>
+      <th>Total (n citas)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EDUSUP</td>
+      <td>Educación superior (actor formativo)</td>
+      <td>15</td>
+      <td>8</td>
+      <td>10</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>OMIL-A</td>
+      <td>Oficina municipal de intermediación laboral (actor intermediación)</td>
+      <td>9</td>
+      <td>10</td>
+      <td>12</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>EMPPUBL</td>
+      <td>Empleador sector público (actor empleador)</td>
+      <td>12</td>
+      <td>6</td>
+      <td>12</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>EDUCESP</td>
+      <td>Educación especial / apoyo educativo (actor formativo)</td>
+      <td>7</td>
+      <td>9</td>
+      <td>9</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>EMPACUI</td>
+      <td>Empleador sector productivo (actor empleador)</td>
+      <td>8</td>
+      <td>4</td>
+      <td>7</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>EDUCTP</td>
+      <td>Educación técnico-profesional (actor formativo)</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>EMPRET</td>
+      <td>Empleador sector comercio/servicios (actor empleador)</td>
+      <td>7</td>
+      <td>4</td>
+      <td>7</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>INTER-TEL</td>
+      <td>Servicio de intermediación/acompañamiento remoto (actor intermediación)</td>
+      <td>6</td>
+      <td>4</td>
+      <td>4</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>EDUCADULT</td>
+      <td>Educación de personas adultas (actor formativo)</td>
+      <td>4</td>
+      <td>7</td>
+      <td>2</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>SLEPADM</td>
+      <td>Servicio/organismo público administrativo (actor institucional)</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>TOTAL</td>
+      <td>—</td>
+      <td>75</td>
+      <td>60</td>
+      <td>72</td>
+      <td>207</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+      // Right-align numeric columns
+      const tbl = document.querySelector('table.tbl');
+      if(tbl){
+        const rows = tbl.querySelectorAll('tr');
+        rows.forEach(r=>{
+          r.querySelectorAll('td,th').forEach((cell, i)=>{
+            if(i>=2) cell.classList.add('num');
+          });
+        });
+      }
+    </script>
+  </div>
+  <a class="back-home" href="/" style="margin-top:16px;" data-i18n="sources-back">← Volver al inicio</a>
+  <footer>
+    <div><span data-i18n="sources-footer-contact">Contacto:</span> <a href="mailto:esteban.cofre@uaysen.cl">esteban.cofre@uaysen.cl</a></div>
+    <div><span data-i18n="sources-footer-ref">Referencia visualizaciones:</span> <a href="https://plotly.com/javascript/sankey-diagram/" target="_blank" rel="noopener">Plotly Sankey Diagram</a></div>
+  </footer>
+</body>
+</html>
